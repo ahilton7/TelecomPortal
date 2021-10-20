@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelecomProject.Data", "TelecomProject.Data\TelecomProject.Data.csproj", "{41452331-2026-4BB2-8670-0C2159B899AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelecomProject.Domain", "TelecomProject.Domain\TelecomProject.Domain.csproj", "{2D55A4F9-C5EA-41C0-93E3-BA7C3E17D5EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelecomProject.Domain", "TelecomProject.Domain\TelecomProject.Domain.csproj", "{2D55A4F9-C5EA-41C0-93E3-BA7C3E17D5EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelecomProject.API", "TelecomProject.API\TelecomProject.API.csproj", "{AC84E7D3-AF44-4F5E-9222-7E633AC4A7D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2D55A4F9-C5EA-41C0-93E3-BA7C3E17D5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D55A4F9-C5EA-41C0-93E3-BA7C3E17D5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D55A4F9-C5EA-41C0-93E3-BA7C3E17D5EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC84E7D3-AF44-4F5E-9222-7E633AC4A7D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC84E7D3-AF44-4F5E-9222-7E633AC4A7D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC84E7D3-AF44-4F5E-9222-7E633AC4A7D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC84E7D3-AF44-4F5E-9222-7E633AC4A7D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
