@@ -9,4 +9,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TelecomProject.Domain\TelecomProject.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

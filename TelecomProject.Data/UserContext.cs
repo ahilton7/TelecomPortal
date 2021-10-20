@@ -30,7 +30,14 @@ namespace TelecomProject.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.Entity<Device>()
+                .HasOne<Person>()
+                .WithMany(o => o.Devices)
+                .HasForeignKey(f => f.User);
+            modelBuilder.Entity<Plan>()
+                .HasOne<Person>()
+                .WithMany(s => s.Plans)
+                .HasForeignKey(u => u.User);
         }
-}
+    }
 }

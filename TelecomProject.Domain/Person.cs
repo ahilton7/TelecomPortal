@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace TelecomProject.Domain
 {
-    class Person
+    public class Person
     {
         public int Id { get; set; }
-
         public string Name { get; set; }
+        public List<Plan> Plans { get; set; } = new List<Plan>();
+        public List<Device> Devices { get; set; } = new List<Device>();
     }
 }
