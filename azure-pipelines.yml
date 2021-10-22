@@ -32,3 +32,32 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**/$(Build.Configuration)/**/?(*.exe|*.dll|*.pbd)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'TelecomProject'
+    publishLocation: 'pipeline'
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'current'
+    artifactName: 'TelecomeProject'
+    targetPath: '$(Pipeline.Workspace)'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(bb022011-daf1-4a56-809e-e930ae46828a)'
+    appType: 'webApp'
+    WebAppName: 'TelecomProjectAPI20211020151612'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'AzureTraining'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
