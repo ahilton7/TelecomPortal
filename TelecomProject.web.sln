@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelecomProject.Data", "Tele
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelecomProject.Domain", "TelecomProject.Domain\TelecomProject.Domain.csproj", "{2D55A4F9-C5EA-41C0-93E3-BA7C3E17D5EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelecomProject.Web", "TelecomProject.Web\TelecomProject.Web.csproj", "{EBA3E72F-3915-4FFF-A0A5-035750FE707A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelecomProject.Web", "TelecomProject.Web\TelecomProject.Web.csproj", "{EBA3E72F-3915-4FFF-A0A5-035750FE707A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelecomProject.UI", "TelecomProject.UI\TelecomProject.UI.csproj", "{77C8C21F-46C9-4907-9F5D-E85FC1657B42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{EBA3E72F-3915-4FFF-A0A5-035750FE707A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBA3E72F-3915-4FFF-A0A5-035750FE707A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBA3E72F-3915-4FFF-A0A5-035750FE707A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C8C21F-46C9-4907-9F5D-E85FC1657B42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C8C21F-46C9-4907-9F5D-E85FC1657B42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C8C21F-46C9-4907-9F5D-E85FC1657B42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C8C21F-46C9-4907-9F5D-E85FC1657B42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

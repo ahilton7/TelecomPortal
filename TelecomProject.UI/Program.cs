@@ -20,14 +20,15 @@ namespace TelecomProject.UI
                 Name = "Testing2",
                 Password = "Pass2"                
             });
-            
+            _context.SaveChanges();
             _context.Plans.Add(new Plan
             {
                 Device_limit = 5,
-                Price = 22.99,
+                Cost = 22.99,
                 Name = "Dual plan",
                 PersonId = 1
             });
+            _context.SaveChanges();
             _context.Devices.Add(new Device
             {
                 Phone_type = "Samsung",
@@ -35,7 +36,7 @@ namespace TelecomProject.UI
                 PersonId = 1,
                 PlanId = 1
             }); 
-            
+
             _context.SaveChanges();
         }
         

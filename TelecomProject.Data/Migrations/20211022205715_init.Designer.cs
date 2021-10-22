@@ -10,7 +10,7 @@ using TelecomProject.Data;
 namespace TelecomProject.Data.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20211022193528_init")]
+    [Migration("20211022205715_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,7 @@ namespace TelecomProject.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("PersonId")
+                    b.Property<int>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<int>("Phone_number")
@@ -74,17 +74,17 @@ namespace TelecomProject.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<double>("Cost")
+                        .HasColumnType("float");
+
                     b.Property<int>("Device_limit")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PersonId")
+                    b.Property<int>("PersonId")
                         .HasColumnType("int");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -97,10 +97,12 @@ namespace TelecomProject.Data.Migrations
                 {
                     b.HasOne("TelecomProject.Domain.Person", "Person")
                         .WithMany("Devices")
-                        .HasForeignKey("PersonId");
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TelecomProject.Domain.Plan", "Plan")
-                        .WithMany()
+                        .WithMany("Devices")
                         .HasForeignKey("PlanId");
 
                     b.Navigation("Person");
@@ -112,7 +114,9 @@ namespace TelecomProject.Data.Migrations
                 {
                     b.HasOne("TelecomProject.Domain.Person", "Person")
                         .WithMany("Plans")
-                        .HasForeignKey("PersonId");
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Person");
                 });
@@ -122,6 +126,11 @@ namespace TelecomProject.Data.Migrations
                     b.Navigation("Devices");
 
                     b.Navigation("Plans");
+                });
+
+            modelBuilder.Entity("TelecomProject.Domain.Plan", b =>
+                {
+                    b.Navigation("Devices");
                 });
 #pragma warning restore 612, 618
         }

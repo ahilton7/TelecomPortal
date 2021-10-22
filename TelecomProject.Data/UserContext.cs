@@ -21,7 +21,7 @@ namespace TelecomProject.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-RMQDHKI;Initial Catalog=TelecomProject;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
+                optionsBuilder.UseSqlServer("Server=tcp:customer-telecom-db.database.windows.net,1433;Initial Catalog=mydb;Persist Security Info=False;User ID=danpickels;Password=Welcome1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
                                            .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information)
                                            .EnableSensitiveDataLogging();
             }
