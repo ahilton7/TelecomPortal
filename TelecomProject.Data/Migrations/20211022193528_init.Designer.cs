@@ -10,7 +10,7 @@ using TelecomProject.Data;
 namespace TelecomProject.Data.Migrations
 {
     [DbContext(typeof(UserContext))]
-    [Migration("20211022152953_init")]
+    [Migration("20211022193528_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,14 +37,14 @@ namespace TelecomProject.Data.Migrations
                     b.Property<string>("Phone_type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Plan_nameId")
+                    b.Property<int?>("PlanId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("PersonId");
 
-                    b.HasIndex("Plan_nameId");
+                    b.HasIndex("PlanId");
 
                     b.ToTable("Devices");
                 });
@@ -80,7 +80,7 @@ namespace TelecomProject.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PersonId")
+                    b.Property<int?>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<double>("Price")
@@ -99,22 +99,20 @@ namespace TelecomProject.Data.Migrations
                         .WithMany("Devices")
                         .HasForeignKey("PersonId");
 
-                    b.HasOne("TelecomProject.Domain.Plan", "Plan_name")
+                    b.HasOne("TelecomProject.Domain.Plan", "Plan")
                         .WithMany()
-                        .HasForeignKey("Plan_nameId");
+                        .HasForeignKey("PlanId");
 
                     b.Navigation("Person");
 
-                    b.Navigation("Plan_name");
+                    b.Navigation("Plan");
                 });
 
             modelBuilder.Entity("TelecomProject.Domain.Plan", b =>
                 {
                     b.HasOne("TelecomProject.Domain.Person", "Person")
                         .WithMany("Plans")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PersonId");
 
                     b.Navigation("Person");
                 });

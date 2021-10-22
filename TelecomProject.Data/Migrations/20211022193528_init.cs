@@ -12,8 +12,8 @@ namespace TelecomProject.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(50)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -28,8 +28,8 @@ namespace TelecomProject.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Device_limit = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    PersonId = table.Column<int>(type: "int", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PersonId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,7 +39,7 @@ namespace TelecomProject.Data.Migrations
                         column: x => x.PersonId,
                         principalTable: "People",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -48,10 +48,10 @@ namespace TelecomProject.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Phone_type = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    Plan_nameId = table.Column<int>(type: "int", nullable: true),
+                    Phone_type = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone_number = table.Column<int>(type: "int", nullable: false),
-                    PersonId = table.Column<int>(type: "int", nullable: true)
+                    PersonId = table.Column<int>(type: "int", nullable: true),
+                    PlanId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -63,8 +63,8 @@ namespace TelecomProject.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Devices_Plans_Plan_nameId",
-                        column: x => x.Plan_nameId,
+                        name: "FK_Devices_Plans_PlanId",
+                        column: x => x.PlanId,
                         principalTable: "Plans",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -76,9 +76,9 @@ namespace TelecomProject.Data.Migrations
                 column: "PersonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Devices_Plan_nameId",
+                name: "IX_Devices_PlanId",
                 table: "Devices",
-                column: "Plan_nameId");
+                column: "PlanId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Plans_PersonId",
