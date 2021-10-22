@@ -1,6 +1,6 @@
 using System;
 
-namespace TelecomProject.API
+namespace TelecomProject.Web
 {
     public class WeatherForecast
     {
