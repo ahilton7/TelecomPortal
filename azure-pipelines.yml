@@ -60,3 +60,4 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: 'AzureTraining'
     SlotName: 'production'
+    packageForLinux: $(System.DefaultWorkingDirectory)/**/*.zip
