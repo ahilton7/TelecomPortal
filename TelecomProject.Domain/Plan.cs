@@ -12,6 +12,7 @@ namespace TelecomProject.Domain
         public int Device_limit { get; set; }
         public double Price { get; set; }
         public string Name { get; set; }
-        public Person User { get; set; }
+        public Person Person { get; set; }
+        public int PersonId { get; set; }
     }
 }

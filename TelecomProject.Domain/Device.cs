@@ -12,6 +12,6 @@ namespace TelecomProject.Domain
         public string Phone_type { get; set; }
         public Plan Plan_name { get; set; }
         public int Phone_number { get; set; }
-        public Person User { get; set; }
+        public Person Person { get; set; }
     }
 }
