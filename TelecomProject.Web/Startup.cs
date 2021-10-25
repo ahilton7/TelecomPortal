@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TelecomProject.Data;
 
 namespace TelecomProject.Web
 {
@@ -28,6 +30,12 @@ namespace TelecomProject.Web
         {
 
             services.AddControllers();
+
+            services.AddDbContext<UserContext>(opt =>
+                opt.UseSqlServer(Configuration.GetConnectionString("TelecomProjectConnex"))
+                    .EnableSensitiveDataLogging()
+                    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TelecomProject.Web", Version = "v1" });

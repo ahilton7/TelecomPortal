@@ -17,8 +17,8 @@ namespace TelecomProject.UI
         {
             _context.People.Add(new Person
             {
-                Name = "Testing2",
-                Password = "Pass2"                
+                Name = "Testing",
+                Password = "Pass"                
             });
             _context.SaveChanges();
             _context.Plans.Add(new Plan
