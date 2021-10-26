@@ -1,9 +1,11 @@
-﻿using System;
+﻿/*
+using System;
 using TelecomProject.Data;
 using TelecomProject.Domain;
 
 namespace TelecomProject.UI
 {
+    /*
     class Program
     {
         private static UserContext _context = new UserContext();
@@ -39,6 +41,8 @@ namespace TelecomProject.UI
 
             _context.SaveChanges();
         }
+    
         
     }
 }
+    */
