@@ -8,7 +8,7 @@ namespace TelecomProject.UI
     /*
     class Program
     {
-        private static UserContext _context = new UserContext();
+        //private static UserContext _context = new UserContext();
         static void Main(string[] args)
         {
             AddData();
@@ -17,29 +17,29 @@ namespace TelecomProject.UI
         
         static void AddData()
         {
-            _context.People.Add(new Person
-            {
-                Name = "Testing",
-                Password = "Pass"                
-            });
-            _context.SaveChanges();
-            _context.Plans.Add(new Plan
-            {
-                Device_limit = 5,
-                Cost = 22.99,
-                Name = "Dual plan",
-                PersonId = 1
-            });
-            _context.SaveChanges();
-            _context.Devices.Add(new Device
-            {
-                Phone_type = "Samsung",
-                Phone_number = 1234567899,
-                PersonId = 1,
-                PlanId = 1
-            }); 
+        //    _context.People.Add(new Person
+        //    {
+        //        Name = "Testing2",
+        //        Password = "Pass2"                
+        //    });
+        //    _context.SaveChanges();
+        //    _context.Plans.Add(new Plan
+        //    {
+        //        Device_limit = 5,
+        //        Cost = 22.99,
+        //        Name = "Dual plan",
+        //        PersonId = 1
+        //    });
+        //    _context.SaveChanges();
+        //    _context.Devices.Add(new Device
+        //    {
+        //        Phone_type = "Samsung",
+        //        Phone_number = 1234567899,
+        //        PersonId = 1,
+        //        PlanId = 1
+        //    }); 
 
-            _context.SaveChanges();
+        //    _context.SaveChanges();
         }
     
         
