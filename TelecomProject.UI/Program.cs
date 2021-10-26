@@ -6,7 +6,7 @@ namespace TelecomProject.UI
 {
     class Program
     {
-        private static UserContext _context = new UserContext();
+        //private static UserContext _context = new UserContext();
         static void Main(string[] args)
         {
             AddData();
