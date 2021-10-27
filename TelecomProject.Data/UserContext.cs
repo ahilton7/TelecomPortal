@@ -31,6 +31,9 @@ namespace TelecomProject.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Device>()
+                .HasIndex(e => e.Phone_number)
+                .IsUnique();
         }
     }
 }

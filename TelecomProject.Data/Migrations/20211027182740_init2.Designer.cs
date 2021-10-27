@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TelecomProject.Data;
 
 namespace TelecomProject.Data.Migrations
 {
     [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [Migration("20211027182740_init2")]
+    partial class init2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,7 +31,7 @@ namespace TelecomProject.Data.Migrations
                     b.Property<int>("PersonId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Phone_number")
+                    b.Property<int>("Phone_number")
                         .HasColumnType("int");
 
                     b.Property<string>("Phone_type")
@@ -43,8 +45,7 @@ namespace TelecomProject.Data.Migrations
                     b.HasIndex("PersonId");
 
                     b.HasIndex("Phone_number")
-                        .IsUnique()
-                        .HasFilter("[Phone_number] IS NOT NULL");
+                        .IsUnique();
 
                     b.HasIndex("PlanId");
 
