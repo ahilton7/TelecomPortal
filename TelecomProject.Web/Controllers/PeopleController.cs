@@ -1,12 +1,15 @@
 ﻿using System;
+using TelecomProject.Web.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using TelecomProject.Data;
 using TelecomProject.Domain;
+using Microsoft.AspNetCore.Cors;
 
 namespace TelecomProject.Web.Controllers
 {
@@ -104,5 +107,26 @@ namespace TelecomProject.Web.Controllers
         {
             return _context.People.Any(e => e.Id == id);
         }
+
+        //For user login   
+        [Route("login")]
+        [HttpPost]
+        public Response Login(Login lg)
+        {
+            Response resp = new Response();
+            bool credentials =_context.People.Any(e => e.Name == lg.UserName && e.Password == lg.Password);
+
+            if (credentials)
+            {
+                resp.Status = 1;
+                resp.Message = lg.UserName;
+            }
+            else {
+                resp.Status = 0;
+                resp.Message = "Invalid User";
+            }
+            
+            return resp;
+        }  
     }
 }
