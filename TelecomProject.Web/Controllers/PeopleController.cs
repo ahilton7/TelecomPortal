@@ -32,10 +32,10 @@ namespace TelecomProject.Web.Controllers
         }
 
         // GET: api/People/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Person>> GetPerson(int id)
+        [HttpGet("{name}")]
+        public async Task<ActionResult<Person>> GetPerson(int name)
         {
-            var person = await _context.People.FindAsync(id);
+            var person = await _context.People.FindAsync(name);
 
             if (person == null)
             {
@@ -88,10 +88,10 @@ namespace TelecomProject.Web.Controllers
         }
 
         // DELETE: api/People/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePerson(int id)
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> DeletePerson(string name)
         {
-            var person = await _context.People.FindAsync(id);
+            var person = await _context.People.FindAsync(name);
             if (person == null)
             {
                 return NotFound();
@@ -120,6 +120,7 @@ namespace TelecomProject.Web.Controllers
             {
                 resp.Status = 1;
                 resp.Message = lg.UserName;
+                
             }
             else {
                 resp.Status = 0;
