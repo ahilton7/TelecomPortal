@@ -131,7 +131,7 @@ namespace TelecomProject.Web.Controllers
                     }
 
                 }
-                resp.userId = person.Id;
+                resp.person = person;
             }
             else {
                 resp.Status = 0;

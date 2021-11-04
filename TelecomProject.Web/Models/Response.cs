@@ -10,6 +10,6 @@ namespace TelecomProject.Web.Models
     {
         public int Status { get; set; }
         public String Message { get; set; }
-        public int userId { get; set; }
+        public Person person { get; set; }
     }
 }
