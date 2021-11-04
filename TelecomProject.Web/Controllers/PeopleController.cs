@@ -120,7 +120,7 @@ namespace TelecomProject.Web.Controllers
             {
                 resp.Status = 1;
                 resp.Message = lg.UserName;
-                resp.person = _context.People.Where(e => e.Name == lg.UserName).FirstOrDefault(); 
+                resp.userId = _context.People.FromSqlRaw("SELECT * FROM dbo.people WHERE name = " + lg.UserName).First().Id;
                 
             }
             else {
