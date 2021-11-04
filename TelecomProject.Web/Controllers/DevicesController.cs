@@ -28,6 +28,14 @@ namespace TelecomProject.Web.Controllers
             return await _context.Devices.ToListAsync();
         }
 
+        // Get: api/Devices
+        // Get matching devices
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Device>>> GetMatching(Person person)
+        {
+            return await _context.Devices.FromSqlRaw("SELECT * FROM dbo.devices WHERE person_id =" + person.Id).ToListAsync();
+        }
+
         // GET: api/Devices/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Device>> GetDevice(int id)
