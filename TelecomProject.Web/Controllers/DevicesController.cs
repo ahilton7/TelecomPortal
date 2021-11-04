@@ -22,18 +22,18 @@ namespace TelecomProject.Web.Controllers
         }
 
         // GET: api/Devices
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Device>>> GetDevices()
-        {
-            return await _context.Devices.ToListAsync();
-        }
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Device>>> GetDevices()
+        //{
+        //    return await _context.Devices.ToListAsync();
+        //}
 
-        // Get: api/Devices
-        // Get matching devices
+        //Get: api/Devices
+        //Get matching devices
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Device>>> GetMatching(Person person)
+        public async Task<ActionResult<IEnumerable<Device>>> GetMatching(int personId)
         {
-            return await _context.Devices.FromSqlRaw("SELECT * FROM dbo.devices WHERE person_id =" + person.Id).ToListAsync();
+            return await _context.Devices.FromSqlRaw("SELECT * FROM dbo.devices WHERE PersonId =" + personId).ToListAsync();
         }
 
         // GET: api/Devices/5

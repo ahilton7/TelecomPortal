@@ -32,10 +32,10 @@ namespace TelecomProject.Web.Controllers
         }
 
         // GET: api/People/5
-        [HttpGet("{name}")]
-        public async Task<ActionResult<Person>> GetPerson(int name)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Person>> GetPerson(int id)
         {
-            var person = await _context.People.FindAsync(name);
+            var person = await _context.People.FindAsync(id);
 
             if (person == null)
             {
