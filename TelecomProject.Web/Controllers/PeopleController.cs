@@ -120,6 +120,7 @@ namespace TelecomProject.Web.Controllers
             {
                 resp.Status = 1;
                 resp.Message = lg.UserName;
+                resp.person = _context.People.Where(e => e.Name == lg.UserName).FirstOrDefault(); 
                 
             }
             else {
