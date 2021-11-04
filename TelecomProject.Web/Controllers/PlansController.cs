@@ -23,9 +23,9 @@ namespace TelecomProject.Web.Controllers
 
         // GET: api/Plans
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Plan>>> GetPlans()
+        public async Task<ActionResult<IEnumerable<Plan>>> GetMatching(int personId)
         {
-            return await _context.Plans.ToListAsync();
+            return await _context.Plans.FromSqlRaw("SELECT * FROM dbo.plans WHERE PersonId =" + personId).ToListAsync();
         }
 
         // GET: api/Plans/5

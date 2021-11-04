@@ -120,7 +120,6 @@ namespace TelecomProject.Web.Controllers
             {
                 resp.Status = 1;
                 resp.Message = lg.UserName;
-                
             }
             else {
                 resp.Status = 0;
