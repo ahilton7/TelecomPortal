@@ -86,8 +86,14 @@ namespace TelecomProject.Web.Controllers
         [HttpPost]
         public async Task<ActionResult<Device>> PostDevice(Device device)
         {
-            _context.Devices.Add(device);
-            await _context.SaveChangesAsync();
+            
+            var planId = _context.Plans.Find(device.PlanId);
+            int current = _context.Devices.FromSqlRaw("SELECT id FROM dbo.devices WHERE planId =" + device.PlanId).Count();
+
+            if (planId.Device_limit > current && planId.PersonId == device.PersonId) {
+                _context.Devices.Add(device);
+                await _context.SaveChangesAsync();
+            }
 
             return CreatedAtAction("GetDevice", new { id = device.Id }, device);
         }
