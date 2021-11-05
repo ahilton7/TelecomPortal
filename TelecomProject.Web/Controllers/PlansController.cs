@@ -28,6 +28,7 @@ namespace TelecomProject.Web.Controllers
             return await _context.Plans.FromSqlRaw("SELECT * FROM dbo.plans WHERE PersonId =" + personId).ToListAsync();
         }
 
+
         // GET: api/Plans/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Plan>> GetPlan(int id)
@@ -95,6 +96,21 @@ namespace TelecomProject.Web.Controllers
             }
 
             _context.Plans.Remove(plan);
+            var device = new Device();
+            int deviceCount = _context.Devices.Count();
+            for (int i = 1; i <= deviceCount; i++) {
+                if (_context.Devices.Any(e => e.Id == i))
+                {
+                    device = _context.Devices.Find(i);
+                    if (device.PlanId == plan.Id)
+                    {
+                        _context.Devices.Remove(device);
+                    }
+                }
+                else {
+                    deviceCount++;
+                }
+            }
             await _context.SaveChangesAsync();
 
             return NoContent();
