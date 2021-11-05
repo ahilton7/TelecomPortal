@@ -115,11 +115,23 @@ namespace TelecomProject.Web.Controllers
         {
             Response resp = new Response();
             bool credentials =_context.People.Any(e => e.Name == lg.UserName && e.Password == lg.Password);
-
+            Person person = new Person();
             if (credentials)
             {
                 resp.Status = 1;
                 resp.Message = lg.UserName;
+                for (int i = 1; i <= _context.People.Count(); i++) {
+
+                    if (PersonExists(i))
+                    {
+                        person = _context.People.Find(i);
+                        if (person.Name == lg.UserName) {
+                            break;
+                        }
+                    }
+
+                }
+                resp.person = person;
             }
             else {
                 resp.Status = 0;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TelecomProject.Domain;
 
 namespace TelecomProject.Web.Models
 {
@@ -9,6 +10,6 @@ namespace TelecomProject.Web.Models
     {
         public int Status { get; set; }
         public String Message { get; set; }
-        public int personId { get; set; }
+        public Person person { get; set; }
     }
 }
